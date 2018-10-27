@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户登录——努比亚官方网站</title>
+		<style type="text/css">
+			form,div,input,a{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: #f5f5f5;
+			}
+			.going-up{
+				width: 850px;
+				margin: 0 auto;
+				background: #FFFFFF;
+				padding-bottom: 40px;
+				margin-top: 40px;
+			}
+			.logo{
+				background: url(../img/nubia-logos.png) no-repeat;
+				background-position: 0 -55px;
+				width: 156px;
+				height: 55px;
+				margin: 0 auto;
+				position: relative;
+				top: 15px;
+			}
+			span{
+				cursor:pointer;
+			}
+			.change{
+				width: 360px;
+				height: 50px;
+				margin: 0 auto;
+				line-height: 50px;
+				text-align: center;
+				font-size: 19px;
+			}
+			form{
+				width: 370px;
+				margin: 0 auto;
+			}
+			input{
+				width: 360px;
+				height: 50px;
+				line-height: 50px;
+				padding-left: 10px;
+				border: 1px solid #e0e4e7;
+				font-size: 12px;
+				margin:10px ;
+			}
+			.submits{
+				background: #E8340E;
+				color: #F4F3EF;
+				font-size: 17px;
+				cursor: pointer;
+			}
+			.to-up{
+				width: 360px;
+				height: 50px;
+				margin: 0 auto;
+				line-height: 50px;
+				font-size: 15px;
+				color: #757575;
+				text-align: right;
+			}
+			.to-up a{
+				color: #E8340E;
+				text-decoration: none;
+			}
+			.to-up a:hover{
+				text-decoration: underline;
+			}
+			
+			.phone-up{
+				display: none;
+			}
+			#zhanghao{
+				color: #BD2C00;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="going-up">
+			<div class="logo"></div>
+			<div class="change">
+				<span id="zhanghao">努比亚账号登录</span>
+			|   <span id="phone">手机验证码登录</span>	
+			</div>
+			
+			<form  method="post" class="zhang">
+				<input type="text" class="uname" name="uname"  placeholder="请输入用户名、手机号码" />
+				<input type="password" class="passwords" name="passwords" placeholder="密码为6-16个字符（数字、字母、符号至少两种）" />
+				<input id="submits" type="button" value="立即登录"/>
+			</form>
+			
+			<form  action="land.php" method="post" class="phone-up">
+				<input type="text" name="uname"  placeholder="手机号码" />
+				<input type="password" name="passwords"  placeholder="请输入验证码（不区分大小写）" />
+				<input type="text" name="" placeholder="请输入手机验证码" />
+				<input  class="submits" type="submit" value="立即登录"/>
+			</form>
+			
+			<div class="to-up">
+				<a href="enroll.html">注册新账号</a>|忘记密码
+			</div>
+	</body>
+</html>
+<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	$("#zhanghao").click(function(){
+		$(this).css("color","#BD2C00");
+		$("#phone").css("color","#000000");
+		$(".zhang").css("display","block");
+		$(".phone-up").css("display","none");
+	});
+	
+	$("#phone").click(function(){
+		$(this).css("color","#BD2C00");
+		$("#zhanghao").css("color","#000000");
+		$(".zhang").css("display","none");
+		$(".phone-up").css("display","block");
+	});
+	
+	//点击在cookie中保存用户名，未点击不登录
+	$("#submits").click(function(){
+		console.log("1");
+		var unames = $(".uname").val();
+		var passwords = $(".passwords").val();
+		$.ajax({
+			type:"post",
+			url:"land.php",
+			data:{
+				uname:unames,
+				passwords:passwords
+			},
+			success:function(result){//436396917
+				if (result=="0") {
+					alert("用户名不存在");
+				}else if(result=="1"){
+					alert("密码错误");
+				}else{
+					alert("登录成功");
+					localStorage.setItem("username",result);//在localstrage中保存用户名
+					location.href = "../index.html";
+				}
+			}
+		});
+	});
+	
+
+	
+	
+
+	
+</script>

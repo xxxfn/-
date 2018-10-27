@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>努比亚手机-购物车</title>
+		<link rel="stylesheet" type="text/css" href="../ipconfig/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-3.4.2.min.css"/>
+		<style type="text/css">
+			div,ul,li,ol,a,input,img,form,body,h1,h2,h3,h4,h5,h6,p{
+			margin: 0;
+			padding: 0;
+		}
+		a{
+		   text-decoration: none;
+		}
+		li{
+			list-style: none;
+		}
+		.container{
+			width: 1200px;
+			margin:  auto;
+		}
+		#header{
+			width: 100%;
+			background: #282828;
+		}
+		.row{
+			width: 1200px;
+			height: 65px;
+			margin: 0 auto;
+			overflow: hidden;
+			position: relative;
+		}
+		h1{
+			width: 200px;
+			height: 65px;
+			float: left;
+			margin-right: 50px;
+		}
+		h1 img{
+			padding-top: 5px;
+			height: 50px;
+			padding-left: 15px;
+		}
+		.row li{
+			float: left;
+			font-size: 13px;
+			margin: 22px 25px;
+		}
+		.row a{
+			color: white;
+		}
+		#entry{
+			height: 65px;
+			display: inline-block;
+			margin: 5px;
+		}
+		#entry a{
+			font-size: 20px;
+			color: white;
+		}
+		#showpingcar{
+			display: inline-block;
+			width: 125px;
+			height: 65px;
+			line-height: 65px;
+			font-size: 15px;
+			text-align: center;
+			background: #E8340E;
+		}
+		#showpingcar:hover{
+			background: #DF5000;
+		}
+		#showpingcar a{
+			color: white;
+		}
+		.cart-table{
+			width: 100%;
+			font-size: 13px;
+		}
+		thead th{
+			background: #f7f9f9;
+			height: 36px;
+			line-height: 36px;
+			text-align: center;
+			color: #727171;
+			border: 1px solid #CCCCCC;
+		}
+		tbody:hover{
+			background: #F7F7F7;
+		}
+		tbody td{
+			border: 1px solid #CCCCCC;
+			text-align: center;
+		}
+		.btn-cnts{
+			border: 1px solid #e0d7e3;
+			border-radius: 4px;
+			display: inline-block;
+		}
+		.table-cut,.table-add{
+			cursor: pointer;
+			padding: 6px 8px;
+		}
+		.num-cart-cnt{
+			height: 25px;
+			/*background: transparent;*/
+			width: 50px;
+			text-align: center;
+			border-left: 1px solid #CCCCCC;
+			border-right:1px solid #CCCCCC;
+			border-top: none;
+			border-bottom: none;
+		}
+		.cart-close{
+			cursor: pointer;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div class="row">
+				<h1><a href="#"><img src="../img/nubia-logo.png"/></a></h1>
+				<ul>
+					<li><a href="../index.html">商城</a></li>
+					<li><a href="../produce_main/main.html">手机</a></li>
+					<li><a href="../index.html">红魔手机</a></li>
+					<li><a href="../index.html">配件</a></li>
+					<li><a href="../index.html">摄影</a></li>
+					<li><a href="#">服务</a></li>
+					<li><a href="#">体验店</a></li>
+					<li><a href="#">社区</a></li>
+					<li><a href="#">nubia UI</a></li>
+				</ul>
+				<div id="entry">
+					<a id="land" href="../goinup/land.html?购物车" class="iconfont" >&#xe680;</a>
+				</div>
+				
+				<div id="showpingcar">
+					<a href="#" class="iconfont">购物车&#xe61a;</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div >
+				共&nbsp;
+				<span class="alls" style="color: red;">1</span>
+				&nbsp;件商品
+			</div>
+			<table class="cart-table" cellspacing="0" cellpadding="0">
+				<thead>
+					<th width="3%">选择</th>
+					<th width="15%">商品</th>
+					<th width="35%"></th>
+					<th width="11%">单价</th>
+					<th width="16%">数量</th>
+					<th width="12%">小计</th>
+					<th width="6%">操作</th>
+				</thead>
+				<tbody class="tbody-one">
+					<td><form action=""><input type="checkbox" class="checkboxs" /></form></td>
+					<td><img src="car_img/car_n3.jpg"/></td>
+					<td class="producetname">Z17 旗舰版( 6GB+128GB 黑金)</td>
+					<td>￥2699</td>
+					<td>
+						<div class="btn-cnts">
+							<span class="table-cut">-</span>
+							<input type="text" maxlength="2" readonly="readonly" class="num-cart-cnt" value="1" />
+							<span class="table-add">+</span>
+						</div>
+					</td>
+					<td class="sum" style="line-height: 1.8;">￥2699</td>
+					<td><span title="删除" class="cart-close">x</span></td>
+				</tbody>
+				
+			</table>
+			<div>
+				<form action="" method="post">全选<input type="checkbox" name="all"/></form>
+				<div class="">合计：</div>
+				<div class="allmany">￥0</div>
+				<div class="">立即付款</div>
+			</div>
+		</div>
+		
+	</body>	
+</html>
+<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	if (localStorage.getItem("username")){
+//		$(".tbody-one").eq(0).hide();
+		let username = localStorage.getItem("username");
+		$.ajax({
+			type:"get",
+			url:"finecar.php",
+			dataType:"json",
+			data:{
+				username:username
+			},
+			//成功回调后开始输出购物车信息
+			success:function(result){
+				var alls = 0;
+				for (let i = 0; i< result.length; i++) {//循环获取每一款手机信息
+					let phonename = result[i][2];//获取手机名
+					let numbers =parseInt(result[i][3]);//获取手机数量
+					alls+=numbers;//把数量加进商品总数
+					console.log(numbers);
+					//通过手机名查找对应手机信息输出
+					$.ajax({
+						type:"get",
+						url:"car.php",
+						dataType:"json",
+						data:{
+							phonename:phonename
+						},
+						success:function(res){//获得手机信息后把信息输出
+							var newtbody = $(".tbody-one").eq(0).clone();//克隆第一个手机信息样式
+							newtbody.find("td").eq(1).find("img").attr("src",res[1]);//获取路径
+							newtbody.find("td").eq(2).html(res[2]);//获取手机名称版本
+							newtbody.find("td").eq(3).html("￥"+res[3]);//获取单价
+							newtbody.find("td").eq(4).find(".num-cart-cnt").attr("value",numbers);//获取数量
+							//小计价格
+							newtbody.find("td").eq(5).html("￥" + numbers * res[3]);//甲酸小计价格
+							//把商品添加到后面
+							newtbody.appendTo($(".cart-table"));
+//							$(".tbody-one").eq(0).css("display","none");
+							
+							//点击减少商品数量，改变小计价格
+							newtbody.find("td").eq(4).find(".table-cut").click(function(){
+								var values = newtbody.find("td").eq(4).find(".num-cart-cnt").attr("value")-1;//获取数量并把数量减一
+								if (values =="0") {//判断数量是否为0
+									alert("再减就没了，您确定不要这件商品吗");
+									newtbody.remove();//删除这个商品
+									//合计减去此时的小计
+									var allmany = newtbody.find("td").eq(3).html().split("");//获取单价
+								 	 allmany.shift();//去掉单价前面的字符
+								 	 var newallmany = allmany.join("");
+								 	if(newtbody.find("td").eq(0).find(".checkboxs").prop("checked") == true){//判断此时这手机是否选中，
+								 		var allmanys = $(".allmany").html().split("");//获取合计价格
+									 	  allmanys.shift();
+									 	 var newallmanys = allmanys.join(""); 
+										console.log((Number(newallmanys) - Number(newallmany)));
+										$(".allmany").html("￥"+ (Number(newallmanys) - Number(newallmany)) );//这时总价等于合计价格减去手机单价
+								 	}
+								 	//通过ajax把后台手机信息删除
+									$.ajax({
+										type:"get",
+										url:"sahngchu.php",
+										data:{
+											username:username,
+											phonename:phonename
+										},
+										success:function(res){
+											console.log(res);
+										}
+									});
+								}else{//数量不为0的情况
+									newtbody.find("td").eq(4).find(".num-cart-cnt").attr("value",values);
+	   								newtbody.find("td").eq(5).html("￥" + res[3] * values);//改变小计
+									var allnumber = $(".alls").html() - 1;//改变商品总数
+									$(".alls").html(allnumber);	
+									//如果选中合计减去此时的单价
+									if(newtbody.find("td").eq(0).find(".checkboxs").prop("checked") == true){
+										var allmany = newtbody.find("td").eq(3).html().split("");//获取单价
+									 	 allmany.shift();
+									 	 var newallmany = allmany.join("");
+									 	 
+									 	var allmanys = $(".allmany").html().split("");//获取合计
+									 	  allmanys.shift();
+									 	 var newallmanys = allmanys.join(""); 
+										console.log((Number(newallmanys) - Number(newallmany)));
+										$(".allmany").html("￥"+ (Number(newallmanys) - Number(newallmany)) );
+									}
+									//通过ajax改变数据库中手机数量
+									$.ajax({
+										type:"get",
+										url:"jianshao.php",
+										data:{
+											username:username,
+											phonename:phonename
+										},
+										success:function(res){
+											console.log(res);
+										}
+									});
+								}
+							})
+							//点击增加商品数量，改变小计价格与合计
+							newtbody.find("td").eq(4).find(".table-add").click(function(){
+								var values = parseInt(newtbody.find("td").eq(4).find(".num-cart-cnt").attr("value"))+1;//获取数量并加一
+   								newtbody.find("td").eq(4).find(".num-cart-cnt").attr("value",values);//获取单价
+   								newtbody.find("td").eq(5).html("￥" + res[3] * values);//改变小计价格
+   								var allnumber = parseInt($(".alls").html()) + 1;//改变商品总数
+								$(".alls").html(allnumber);	
+								
+								//合计加上此时的单价
+								if(newtbody.find("td").eq(0).find(".checkboxs").prop("checked") == true){
+									var allmany = newtbody.find("td").eq(3).html().split("");
+								 	 allmany.shift();
+								 	 var newallmany = allmany.join("");
+								 	 
+								 	var allmanys = $(".allmany").html().split("");
+								 	  allmanys.shift();
+								 	 var newallmanys = allmanys.join(""); 
+									console.log((Number(newallmanys) - Number(newallmany)));
+									$(".allmany").html("￥"+ (Number(newallmanys) + Number(newallmany)) );
+								}
+								//后台增加手机数量
+								$.ajax({
+										type:"get",
+										url:"zenjia.php",
+										data:{
+											username:username,
+											phonename:phonename
+										},
+										success:function(res){
+										console.log(res);
+										}
+								});	
+							})
+							//删除商品数量，改变合计
+							newtbody.find("td").eq(6).find(".cart-close").click(function(){
+								alert("您确定不要这件商品了吗");
+								newtbody.remove();
+								var values = parseInt(newtbody.find("td").eq(4).find(".num-cart-cnt").attr("value"));//获取手机数量
+								var allnumber = parseInt($(".alls").html())-values;//商品数量减去手机数量
+								$(".alls").html(allnumber);	
+								//合计减去此时的小计价格
+									if(newtbody.find("td").eq(0).find(".checkboxs").prop("checked") == true){
+										var allmany = newtbody.find("td").eq(5).html().split("");
+									 	 allmany.shift();
+									 	var newallmany = allmany.join("");
+									 	 
+									 	var allmanys = $(".allmany").html().split("");
+									 	  allmanys.shift();
+									 	var newallmanys = allmanys.join(""); 
+										
+										$(".allmany").html("￥"+ (Number(newallmanys) - Number(newallmany)) );
+									}
+								//后台删除手机信息
+								$.ajax({
+									type:"get",
+									url:"sahngchu.php",
+									data:{
+										username:username,
+										phonename:phonename
+									},
+									success:function(res){
+										console.log(res);
+									}
+								});
+								
+							})
+							//点击单选计算合计价格
+							 newtbody.find("td").eq(0).find(".checkboxs").click(function(){
+							 	var flag = true;
+								for (let i = 0 ;i<$(".tbody-one").length; i++){//循环判断是否全选中
+									if ( $(".tbody-one").eq(i).find("td").eq(0).find(".checkboxs").prop("checked")== false ) {
+										flag = false;
+									}
+								}
+								if(flag){
+									$("input[name='all']").prop("checked",true);
+								}
+							 	if(newtbody.find("td").eq(0).find(".checkboxs").prop("checked") == false){
+							 		//未选中时的情况，合计减去此时的小计
+							 		$("input[name='all']").prop("checked",false);//去掉全选
+							 		var allmany = newtbody.find("td").eq(5).html().split("");//获取小计
+								 	 allmany.shift();
+								 	 var newallmany = allmany.join("");
+								 	 
+								 	var allmanys = $(".allmany").html().split("");//获取总价格
+								 	  allmanys.shift();
+								 	 var newallmanys = allmanys.join(""); 
+									console.log((Number(newallmany) +Number(newallmanys)));
+									$(".allmany").html("￥"+ (Number(newallmanys) -Number(newallmany)) );//改变总价
+							 	}else{//选中的情况
+							 		var allmany = newtbody.find("td").eq(5).html().split("");
+								 	 allmany.shift();
+								 	 var newallmany = allmany.join("");
+								 	 
+								 	var allmanys = $(".allmany").html().split("");
+								 	  allmanys.shift();
+								 	 var newallmanys = allmanys.join(""); 
+									console.log((Number(newallmany) +Number(newallmanys)));
+									$(".allmany").html("￥"+ (Number(newallmany) +Number(newallmanys)) );
+							 	}
+							 	
+							 })
+							//点击全选计算合计
+							$("input[name='all']").click(function(){
+								if($("input[name='all']").prop("checked") == false){
+									//未选中时的情况
+									$(".allmany").html("￥0");//总价为0
+									for (let i = 0 ;i<$(".tbody-one").length; i++){
+										$(".tbody-one").eq(i).find("td").eq(0).find(".checkboxs").prop("checked",false);//全部单选框不选中
+									}
+								}else{//选中时加上所有手机小计价格
+									var allmany = 0;
+									for (let i = 0 ;i<$(".tbody-one").length; i++) {//循环获取所有手机小计价格
+										$(".tbody-one").eq(i).find("td").eq(0).find(".checkboxs").prop("checked",$(this).prop("checked"));
+										var allmanys=$(".tbody-one").eq(i).find("td").eq(5).html().split("");
+										 allmanys.shift();
+								 	 	var newallmany = allmanys.join("");
+								 	 	console.log(newallmany);
+								 	 	allmany += Number(newallmany);//所有小计累加
+									}
+									$(".allmany").html("￥"+ Number(allmany));
+								}
+								
+							});
+						}
+					});
+				}
+				$(".alls").html(alls);
+			}
+		});
+	}else{
+		alert("请登录");
+		$(".tbody-one").css("display","none");
+	}
+	//点击第一排的单选框时的事件
+	$(".tbody-one").eq(0).find("td").eq(0).find(".checkboxs").click(function(){
+		if ($(".tbody-one").eq(0).find("td").eq(0).find(".checkboxs").prop("checked")== true){
+			//如果是选中，把这件商品的价格加进合计
+			var allmany = $(".tbody-one").eq(0).find("td").eq(5).html().split("");//获取这手机的总价
+				 	allmany.shift();
+				var newallmany = allmany.join("");
+								 	 
+				var allmanys = $(".allmany").html().split("");//获取原来的合计
+					allmanys.shift();
+				var newallmanys = allmanys.join(""); 
+				$(".allmany").html("￥"+ (Number(newallmanys) + Number(newallmany)) );
+		}else{//如果是不选中，把合计减去这件商品的小计
+			var allmany = $(".tbody-one").eq(0).find("td").eq(5).html().split("");
+				 	allmany.shift();
+				var newallmany = allmany.join("");
+								 	 
+				var allmanys = $(".allmany").html().split("");
+					allmanys.shift();
+				var newallmanys = allmanys.join(""); 
+				$(".allmany").html("￥"+ (Number(newallmanys) -Number(newallmany)) );
+		}
+		//以下循环判断除第一个外的单选框是否选中
+		var flag = true;
+		for (let i = 1 ;i<$(".tbody-one").length; i++){
+			if ( $(".tbody-one").eq(i).find("td").eq(0).find(".checkboxs").prop("checked")== false ) {
+				flag = false;
+			}
+		}
+		if(flag){//如果都选中再判断第一个单选框是否选中
+			if ($(".tbody-one").eq(0).find("td").eq(0).find(".checkboxs").prop("checked")== false) {
+				$("input[name='all']").prop("checked",false);
+			}else{
+				$("input[name='all']").prop("checked",true);	
+			}
+		}
+	})
+	
+	
+</script>

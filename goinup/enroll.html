@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户注册——努比亚官方网站</title>
+		<style type="text/css">
+			form,div,input,a{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: #f5f5f5;
+			}
+			.enroll{
+				width: 850px;
+				margin: 0 auto;
+				background: #FFFFFF;
+				padding-bottom: 40px;
+				margin-top: 40px;
+			}
+			.logo{
+				background: url(../img/nubia-logos.png) no-repeat;
+				background-position: 0 -55px;
+				width: 156px;
+				height: 55px;
+				margin: 0 auto;
+				position: relative;
+				top: 15px;
+			}
+			.en-form{
+				width: 370px;
+				margin: 0 auto;
+			}
+			input{
+				width: 360px;
+				height: 50px;
+				line-height: 50px;
+				padding-left: 10px;
+				border: 1px solid #e0e4e7;
+				font-size: 12px;
+				margin:5px ;
+			}
+			.checkboxs{
+				width: initial;
+				height: initial;
+			}
+			span{
+				color: #E8340E;
+				cursor: pointer;
+			}
+			span:hover{
+				text-decoration: underline;
+			}
+			.submits{
+				background: #E8340E;
+				color: #F4F3EF;
+				font-size: 17px;
+				letter-spacing: 25px;
+				cursor: pointer;
+			}
+			.to-up{
+				width: 360px;
+				height: 50px;
+				margin: 0 auto;
+				line-height: 50px;
+				font-size: 15px;
+				color: #757575;
+				text-align: right;
+			}
+			.to-up a{
+				color: #E8340E;
+				text-decoration: none;
+			}
+			.to-up a:hover{
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="enroll">
+			<div class="logo"></div>
+			<form action="enroll.php" method="post" class="en-form">
+				<input type="text" name="uname"  placeholder="请输入用户名/手机号码" />
+				<input type="password" name="password" placeholder="密码为6-16个字符（数字、字母、符号至少两种）" />
+				<input type="text"  placeholder="请输入验证码" />
+				<input class="checkboxs" type="checkbox" checked="checked" />我已阅读并接受 <span>用户协议</span>和<span>隐私政策</span>
+				<input class="submits" type="submit" value="提交"/>
+			</form>
+			<div class="to-up">
+				已有账号，<a href="land.html">直接登录</a>
+			</div>
+		</div>
+	</body>
+</html>
